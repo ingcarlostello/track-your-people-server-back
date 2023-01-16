@@ -36,7 +36,8 @@ io.on("connection", (socket) => {
   socket.on("moving-marker", (movingMarker) => {
 
     console.log('movingMarker--->', movingMarker);
-    socket.broadcast.emit('moving-marker', movingMarker)
+    socket.broadcast.emit('moving-marker', movingMarker);
+    
 
   })
 
