@@ -16,7 +16,8 @@ const server = app.listen(port, () => {
 
 const io = new Server(server, {
       cors: {
-            origin: 'http://127.0.0.1:5173'
+            // origin: 'http://127.0.0.1:5173'
+            origin: 'https://track-your-people-front.vercel.app'
       }
 });
 
@@ -25,10 +26,22 @@ let onlyActiveMarkers
 io.on("connection", (socket) => {
   console.log("a user connected");
 
+
   socket.on("new-marker", (markerPosition) => {
+
+
+
     addMarker(markerPosition);
+
+
+
+    console.log('array de marcadres activos--->', activeMarkers);
+
+
     onlyActiveMarkers = activeMarkers.filter(item => item.markerId != '')
-    console.log('marcadores activos--->', onlyActiveMarkers);
+
+
+
     socket.broadcast.emit("emit-new-marker", onlyActiveMarkers); // everyone gets it but the sender
   });
 

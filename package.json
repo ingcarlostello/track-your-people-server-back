@@ -4,9 +4,6 @@
   "description": "server",
   "type": "module",
   "main": "index.js",
-  "engines":{
-    "node": "14.x"
-  },
   "author": "Carlos",
   "license": "MIT",
   "scripts": {
