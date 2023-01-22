@@ -17,10 +17,11 @@ const server = app.listen(port, () => {
 const io = new Server(server, {
       cors: {
             // origin: 'http://127.0.0.1:5173'
-            origin: 'https://track-your-people-front.vercel.app'
+            //origin: 'https://track-your-people-front.vercel.app'
+            origin: '*'
       }
 });
-io.set('origins', '*');
+
 
 let onlyActiveMarkers
 
