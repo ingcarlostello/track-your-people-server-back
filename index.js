@@ -20,6 +20,7 @@ const io = new Server(server, {
             origin: 'https://track-your-people-front.vercel.app'
       }
 });
+io.set('origins', '*');
 
 let onlyActiveMarkers
 
