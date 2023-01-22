@@ -16,13 +16,13 @@ const server = app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-// const io = new Server(server, {
-//       cors: {
-//             // origin: 'http://127.0.0.1:5173'
-//             //origin: 'https://track-your-people-front.vercel.app'
-//             origin: '*'
-//       }
-// });
+const io = new Server(server, {
+      cors: {
+            // origin: 'http://127.0.0.1:5173'
+            //origin: 'https://track-your-people-front.vercel.app'
+            origin: '*'
+      }
+});
 
 
 let onlyActiveMarkers
