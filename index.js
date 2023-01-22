@@ -1,9 +1,11 @@
 import express from "express";
+import cors from "cors";
 import { Server } from "socket.io";
 import { activeMarkers, addMarker } from "./models/marcadores.js";
 
 
 const app = express();
+app.use(cors());
 const port = 4000;
 
 app.get("/", (req, res) => {
@@ -14,13 +16,13 @@ const server = app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-const io = new Server(server, {
-      cors: {
-            // origin: 'http://127.0.0.1:5173'
-            //origin: 'https://track-your-people-front.vercel.app'
-            origin: '*'
-      }
-});
+// const io = new Server(server, {
+//       cors: {
+//             // origin: 'http://127.0.0.1:5173'
+//             //origin: 'https://track-your-people-front.vercel.app'
+//             origin: '*'
+//       }
+// });
 
 
 let onlyActiveMarkers
