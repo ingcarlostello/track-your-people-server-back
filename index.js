@@ -29,7 +29,8 @@ const io = new Server(server, {
             //origin: 'https://track-your-people-front.vercel.app',
             origin: '*',
             methods: ["GET", "POST"],
-            credentials: true
+            credentials: true,
+            allowedHeaders: ["my-custom-header"],
      
             
       }
