@@ -17,19 +17,22 @@ const server = app.listen(port, () => {
 });
 
 const io = new Server(server, {
-      transports: ["polling","websocket"],
+
       
       cors: {
             // origin: 'http://127.0.0.1:5173'
             //origin: 'https://track-your-people-front.vercel.app',
             origin: '*',
             methods: ["GET", "POST"],
-            allowedHeaders: ["my-custom-header"],
             credentials: true
-            
+     
             
       }
 });
+
+
+
+
 
 
 let onlyActiveMarkers
