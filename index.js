@@ -20,7 +20,8 @@ const io = new Server(server, {
       cors: {
             // origin: 'http://127.0.0.1:5173'
             //origin: 'https://track-your-people-front.vercel.app'
-            origin: '*'
+            origin: '*',
+            methods: ["GET", "POST"]
       }
 });
 
