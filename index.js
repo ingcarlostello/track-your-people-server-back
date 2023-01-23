@@ -1,8 +1,12 @@
+
 import express from "express";
 import cors from "cors";
 import { Server } from "socket.io";
-import { activeMarkers, addMarker } from "./models/marcadores.js";
 
+
+
+
+  
 
 const app = express();
 app.use(cors());
