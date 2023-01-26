@@ -13,7 +13,7 @@ const app = express();
 app.use(cors({
   origin : [ 'https://track-your-people-front.vercel.app' , 'http://localhost:3001' ],
   methods:["GET" , "POST" , "PUT", "DELETE"],
-  credential: true
+  credentials: true
 }));
 const port = 4000;
 
