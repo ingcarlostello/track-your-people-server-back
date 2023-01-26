@@ -1,6 +1,6 @@
 
 import express from "express";
-import cors from "cors";
+//import cors from "cors";
 import { Server } from "socket.io";
 import cluster from 'cluster'
 import sticky from 'sticky-session'
