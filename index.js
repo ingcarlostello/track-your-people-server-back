@@ -17,6 +17,9 @@ const app = express();
 const port = 4000;
 
 const server = http.Server(app);
+// var server = require('http').createServer(function(req, res) {
+//   res.end('worker: ' + cluster.worker.id);
+// });
 
 app.get("/", (req, res) => {
   console.log('worker: ' + cluster.worker.id);
@@ -27,16 +30,9 @@ app.get("/", (req, res) => {
 //   console.log(`Example app listening on port ${port}`);
 // });
 
-
-
-
-
-
-
-
-
-
-const io = new Server(server, {
+if (!sticky.listen(server, 4000)) {
+  // Master code
+  const io = new Server(server, {
 
     transports: [ "polling", "websocket"  ],
       cors: {
@@ -93,18 +89,33 @@ io.on("connection", (socket) => {
 
 
 });
-
-
-if(!sticky.listen(server,port))
-{
   server.once('listening', function() {
-    console.log('Server started on port '+port);
+    console.log('server started on 4000 port');
   });
+} 
 
-  if (cluster.isMaster) {
-    console.log('Master server started on port '+port);
-  } 
-}
-else {
-    console.log('- Child server started on port '+port+' case worker id='+cluster.worker.id);
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+// if(!sticky.listen(server,port))
+// {
+//   server.once('listening', function() {
+//     console.log('Server started on port '+port);
+//   });
+
+//   if (cluster.isMaster) {
+//     console.log('Master server started on port '+port);
+//   } 
+// }
+// else {
+//     console.log('- Child server started on port '+port+' case worker id='+cluster.worker.id);
+//   }
