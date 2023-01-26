@@ -2,6 +2,9 @@
 import express from "express";
 import cors from "cors";
 import { Server } from "socket.io";
+import cluster from 'cluster'
+import sticky from 'sticky-session'
+import http from 'http'
 
 
 
@@ -13,13 +16,38 @@ const app = express();
 
 const port = 4000;
 
+const server = http.Server(app);
+
 app.get("/", (req, res) => {
+  console.log('worker: ' + cluster.worker.id);
   res.send("Hello World!");
 });
 
-const server = app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+// const server = app.listen(port, () => {
+//   console.log(`Example app listening on port ${port}`);
+// });
+
+
+
+
+if(!sticky.listen(server,port))
+{
+  server.once('listening', function() {
+    console.log('Server started on port '+port);
+  });
+
+  if (cluster.isMaster) {
+    console.log('Master server started on port '+port);
+  } 
+}
+else {
+    console.log('- Child server started on port '+port+' case worker id='+cluster.worker.id);
+  }
+
+
+
+
+
 
 const io = new Server(server, {
 
