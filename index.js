@@ -10,6 +10,11 @@ import { Server } from "socket.io";
 
 const app = express();
 app.use(cors());
+app.use(cors({
+  origin : [ 'https://track-your-people-front.vercel.app' , 'http://localhost:3001' ],
+  methods:["GET" , "POST" , "PUT", "DELETE"],
+  credential: true
+}));
 const port = 4000;
 
 app.get("/", (req, res) => {
