@@ -30,19 +30,6 @@ app.get("/", (req, res) => {
 
 
 
-if(!sticky.listen(server,port))
-{
-  server.once('listening', function() {
-    console.log('Server started on port '+port);
-  });
-
-  if (cluster.isMaster) {
-    console.log('Master server started on port '+port);
-  } 
-}
-else {
-    console.log('- Child server started on port '+port+' case worker id='+cluster.worker.id);
-  }
 
 
 
@@ -106,3 +93,18 @@ io.on("connection", (socket) => {
 
 
 });
+
+
+if(!sticky.listen(server,port))
+{
+  server.once('listening', function() {
+    console.log('Server started on port '+port);
+  });
+
+  if (cluster.isMaster) {
+    console.log('Master server started on port '+port);
+  } 
+}
+else {
+    console.log('- Child server started on port '+port+' case worker id='+cluster.worker.id);
+  }
