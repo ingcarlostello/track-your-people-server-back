@@ -9,12 +9,8 @@ import { Server } from "socket.io";
   
 
 const app = express();
-// app.use(cors());
-app.use(cors({
-  origin: 'https://track-your-people-front.vercel.app',
-  //methods:["GET" , "POST" , "PUT", "DELETE"],
-  credentials: true
-}));
+app.use(cors());
+
 const port = 4000;
 
 app.get("/", (req, res) => {
@@ -33,7 +29,7 @@ const io = new Server(server, {
             // origin: 'http://127.0.0.1:5173'
             //origin: 'https://track-your-people-front.vercel.app',
             origin: '*',
-            //methods: ["GET", "POST"],
+            methods: ["GET", "POST"],
             credentials: true,
 
      
