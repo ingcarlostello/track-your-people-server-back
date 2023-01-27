@@ -5,10 +5,21 @@ import { activeMarkers, addMarker } from "./models/marcadores.js";
 
 const app = express();
 const server = http.Server(app);
-const io = new SocketServer(server, { cors: { 
-  origin: "https://track-your-people-front.vercel.app",
-  credentials: true
-} });
+
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', "https://track-your-people-front.vercel.app");
+  next();
+});
+
+const io = new SocketServer(server, {
+  cors: {
+    origin: "https://track-your-people-front.vercel.app",
+    credentials: true,
+    methods: ["GET", "POST"],
+  },
+});
+
 const port = 4000;
 
 app.get("/", (req, res) => {
