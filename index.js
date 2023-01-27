@@ -18,6 +18,7 @@ let onlyActiveMarkers;
 
 io.on("connection", (socket) => {
   console.log("a user connected");
+  console.log('socket', socket.id);
   socket.on("new-marker", (markerPosition) => {
     addMarker(markerPosition);
     console.log("array de marcadres activos--->", activeMarkers);
