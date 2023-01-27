@@ -13,10 +13,12 @@ app.use((req, res, next) => {
 });
 
 const io = new SocketServer(server, {
+  
   cors: {
     origin: "https://track-your-people-front.vercel.app",
     credentials: true,
     methods: ["GET", "POST"],
+    allowedHeaders:["my-custom-header"],
   },
 });
 
