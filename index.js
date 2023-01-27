@@ -13,7 +13,7 @@ app.use((req, res, next) => {
 });
 
 const io = new SocketServer(server, {
-  path: '/api/socket.io',
+  path: '/socket.io',
   
   cors: {
     origin: "https://track-your-people-front.vercel.app",
