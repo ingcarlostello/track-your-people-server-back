@@ -5,7 +5,10 @@ import { activeMarkers, addMarker } from "./models/marcadores.js";
 
 const app = express();
 const server = http.Server(app);
-const io = new SocketServer(server, { cors: { origin: "*" } });
+const io = new SocketServer(server, { cors: { 
+  origin: "https://track-your-people-front.vercel.app",
+  credentials: true
+} });
 const port = 4000;
 
 app.get("/", (req, res) => {
