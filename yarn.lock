@@ -2,10 +2,23 @@
 # yarn lockfile v1
 
 
+"@socket.io/cluster-adapter@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@socket.io/cluster-adapter/-/cluster-adapter-0.2.1.tgz#e18d55da5e873f0eede8d24f074f7b43b73e982c"
+  integrity sha512-6PBOgghZJccrSs8ISEt8jJDuHRpNMvO+VZ7cHfkraFSoo1+2VS+p8QMiJ6p5ty+yGgEENgRo7jWdamupC1foJw==
+  dependencies:
+    debug "~4.3.1"
+    socket.io-adapter "~2.4.0"
+
 "@socket.io/component-emitter@~3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@socket.io/component-emitter/-/component-emitter-3.1.0.tgz#96116f2a912e0c02817345b3c10751069920d553"
   integrity sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==
+
+"@socket.io/sticky@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@socket.io/sticky/-/sticky-1.0.2.tgz#4944e63d0677d0a666310b85ec036162693498a2"
+  integrity sha512-70EyGAPfwowx7ItHBd9yTDuLzjChi5K5vh65b3RpANJnqprXoe69wFu//VAbHjSXMnNjcSZNH9pXHERLFj1WKg==
 
 "@types/cookie@^0.4.1":
   version "0.4.1"
