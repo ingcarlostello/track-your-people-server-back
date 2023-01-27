@@ -13,6 +13,7 @@ app.use((req, res, next) => {
 });
 
 const io = new SocketServer(server, {
+  path: '/api/socket.io',
   
   cors: {
     origin: "https://track-your-people-front.vercel.app",
@@ -21,6 +22,13 @@ const io = new SocketServer(server, {
     allowedHeaders:["my-custom-header"],
   },
 });
+
+
+  io.engine.on('headers', (headers, req) => {
+      headers['Access-Control-Allow-Origin'] = "https://track-your-people-front.vercel.app";
+      headers['Access-Control-Allow-Credentials'] = true;
+  });
+
 
 const port = 4000;
 
