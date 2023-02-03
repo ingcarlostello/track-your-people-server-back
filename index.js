@@ -45,7 +45,14 @@ if (cluster.isPrimary) {
 
   const server = http.Server(app);
 
-  const io = new SocketServer(server);
+  const io = new SocketServer(server, {
+    cors: {
+      //origin: "https://track-your-people-front.vercel.app",
+      origin: "*",
+      credentials: true,
+      methods: ["GET", "POST"],
+    },
+  });
 
   // use the cluster adapter
   io.adapter(createAdapter());
