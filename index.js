@@ -9,8 +9,8 @@ const server = http.Server(app);
 
 const io = new SocketServer(server, {
   cors: {
-    //origin: "https://track-your-people-front.vercel.app",
-    origin: "*",
+    origin: "http://127.0.0.1:5173",
+    //origin: "*",
     
   },
 });
