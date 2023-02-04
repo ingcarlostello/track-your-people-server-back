@@ -18,7 +18,7 @@ const io = new SocketServer(server, {
   },
 });
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
