@@ -11,7 +11,9 @@ const io = new SocketServer(server, {
   cors: {
     origin: "http://127.0.0.1:5173",
     //origin: "*",
-    credentials: true
+    credentials: true,
+    methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header"],
     
   },
 });
